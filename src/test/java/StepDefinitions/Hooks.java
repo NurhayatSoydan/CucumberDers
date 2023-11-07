@@ -19,14 +19,13 @@ public class Hooks {
     @After // Cucumber ın Annotation ı
     public void after(Scenario senaryo)
     {
-        ExcelUtility.writeToExcel("", senaryo);
-
         // extent reportun plugini aktif iken açık kalsın
-   /*     if (senaryo.isFailed()){
+        if (senaryo.isFailed()){
             TakesScreenshot ts=((TakesScreenshot) GWD.getDriver());
             byte[] hafizadakiHali=ts.getScreenshotAs(OutputType.BYTES);
             senaryo.attach(hafizadakiHali, "image/png", "screenshot name");
-        }*/
+        }
+        ExcelUtility.writeToExcel("", senaryo);
 
         //System.out.println("Senaryo bitti ?");
         // doğru çalışırsa burada quiti çağıracağım
