@@ -22,11 +22,11 @@ public class Hooks {
         ExcelUtility.writeToExcel("", senaryo);
 
         // extent reportun plugini aktif iken açık kalsın
-        if (senaryo.isFailed()){
+   /*     if (senaryo.isFailed()){
             TakesScreenshot ts=((TakesScreenshot) GWD.getDriver());
             byte[] hafizadakiHali=ts.getScreenshotAs(OutputType.BYTES);
             senaryo.attach(hafizadakiHali, "image/png", "screenshot name");
-        }
+        }*/
 
         //System.out.println("Senaryo bitti ?");
         // doğru çalışırsa burada quiti çağıracağım
