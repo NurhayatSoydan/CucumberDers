@@ -5,34 +5,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBUtility {
-    public static Connection connection; //bağlantı
-    public static Statement statement; // sorguekranı
 
-    public List<List<String>> getDataList(String sql) {
+    public static Connection connection;
+    public static  Statement statement;
+
+
+    public static List<List<String>> getDataList(String sql){
         DBConnectionOpen();
 
-        List<List<String>> dataList = new ArrayList<>();
+        List<List<String>> dataList=new ArrayList<>();
 
         try {
             ResultSet rs = statement.executeQuery(sql);
-            ResultSetMetaData rsmd = rs.getMetaData();
+            ResultSetMetaData rsmd=rs.getMetaData();
 
             while (rs.next()) {
-                List<String> rowList = new ArrayList<>();
-                for (int i = 1; i < rsmd.getColumnCount(); i++) {
+                List<String> rowList=new ArrayList<>();
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
                     rowList.add(rs.getString(i));
                 }
+
                 dataList.add(rowList);
             }
-
-        } catch (Exception ex) {
+        }
+        catch(Exception ex){
             System.out.println(ex.getMessage());
         }
+
         DBConnectionClose();
         return dataList;
     }
 
-    public void DBConnectionOpen() {
+
+
+    public static void DBConnectionOpen()
+    {
         String HostUrl = "jdbc:mysql://db-technostudy.ckr1jisflxpv.us-east-1.rds.amazonaws.com/sakila";
         String username = "root";
         String password = "'\"-LhCB'.%k[4S]z";
@@ -40,17 +47,21 @@ public class DBUtility {
         try {
             connection = DriverManager.getConnection(HostUrl, username, password);
             statement = connection.createStatement();
-        } catch (Exception ex) {
+        }
+        catch(Exception ex){
             System.out.println("ex.getMessage() = " + ex.getMessage());
         }
     }
 
-    public void DBConnectionClose() {
+    public static void DBConnectionClose()
+    {
         try {
             connection.close();
         } catch (SQLException ex) {
             System.out.println("ex.getMessage() = " + ex.getMessage());
         }
     }
+
+
 
 }

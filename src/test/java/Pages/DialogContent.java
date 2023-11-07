@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.List;
 
 public class DialogContent extends Parent{
 
@@ -89,6 +90,8 @@ public class DialogContent extends Parent{
     @FindBy(xpath="//mat-select//span[text()='Test 2024']")
     private WebElement searchAcademicPeriod;
 
+    @FindBy(xpath = "//tbody[@role='rowgroup']//tr//td[2]")
+    public List<WebElement> nameList;
 
     public WebElement getWebElement(String strElement){
         switch (strElement){
