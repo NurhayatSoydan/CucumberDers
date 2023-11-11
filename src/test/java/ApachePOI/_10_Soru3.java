@@ -11,7 +11,7 @@ package ApachePOI;
  *  diğerlerini)
  */
 
-public class _10_Soru3 {
+public class _10_Soru3  {
 
 
 
