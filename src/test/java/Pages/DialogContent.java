@@ -28,7 +28,7 @@ public class DialogContent extends Parent{
     public WebElement username;
 
     @FindBy(css="input[formcontrolname='password']")
-    public WebElement password;
+    public WebElement password;q
 
     @FindBy(css="button[aria-label='LOGIN']")
     public WebElement loginButton;
